@@ -25,10 +25,12 @@ gallary.innerHTML = markupGallary;
 
 gallary.addEventListener('click', onClick);
 
+let lightbox  = new SimpleLightbox('.gallery a');
+
 function onClick(evt) {
+    
   evt.preventDefault();
   
-  let lightbox  = new SimpleLightbox('.gallery a');
 
 }
 
