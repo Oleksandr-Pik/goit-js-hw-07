@@ -13,7 +13,7 @@ const markupGallary = galleryItems
       class="gallery__image" 
       src="${preview}" 
       alt="${description}"
-      title="${description}"
+      title=""
       />
    </a>
 </li>
@@ -23,15 +23,10 @@ const markupGallary = galleryItems
 
 gallary.innerHTML = markupGallary;
 
-gallary.addEventListener('click', onClick);
-
 let lightbox  = new SimpleLightbox('.gallery a');
 
-function onClick(evt) {
-    
-  evt.preventDefault();
-  
-
-}
+lightbox.options.captionsData = 'alt';
+lightbox.options.captionDelay = 250;
+console.log(lightbox);
 
 

@@ -30,6 +30,8 @@ function onClick(evt) {
     return;
   }
 
+  onShow: (instance) => {}
+
   evt.preventDefault();
   const instance = basicLightbox.create(`
         <img 
@@ -38,11 +40,15 @@ function onClick(evt) {
         height="600">
     `);
   instance.show();
+  
+  console.log(instance);;
 
   document.addEventListener('keydown', evt => {
     if (evt.code == 'Escape') {
       instance.close();
-      console.log(evt.code);
+
+      onclose: (instance) => {}
+     
     }
   });
 }
