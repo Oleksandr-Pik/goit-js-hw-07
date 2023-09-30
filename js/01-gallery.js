@@ -29,26 +29,31 @@ function onClick(evt) {
   if (!evt.target.classList.contains('js-gallary-target')) {
     return;
   }
-
-  onShow: (instance) => {}
-
   evt.preventDefault();
-  const instance = basicLightbox.create(`
-        <img 
-        src="${evt.target.dataset.source}" 
-        width="800" 
-        height="600">
-    `);
+
+  const instance = basicLightbox.create(
+    `
+  <img 
+  src="${evt.target.dataset.source}" 
+  width="800" 
+  height="600">
+  `,
+    // {
+    //   onShow: instance => {
+    //     instance.element().querySelector('a').onclick = instance.close
+    //   }
+    // }
+  );
+
   instance.show();
-  
-  console.log(instance);;
+
+  console.log(instance);
 
   document.addEventListener('keydown', evt => {
     if (evt.code == 'Escape') {
       instance.close();
 
-      onclose: (instance) => {}
-     
+      onclose: instance => {};
     }
   });
 }
