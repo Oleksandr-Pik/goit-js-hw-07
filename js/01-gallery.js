@@ -37,23 +37,23 @@ function onClick(evt) {
   src="${evt.target.dataset.source}" 
   width="800" 
   height="600">
-  `,
-    // {
-    //   onShow: instance => {
-    //     instance.element().querySelector('a').onclick = instance.close
-    //   }
-    // }
+  `, 
+  { onShow: (instance) => {
+    console.log('Modal is visible');
+    document.addEventListener('keydown', onCloseModal);
+  } ,
+  onClose: (instance) => {
+    console.log('Modal is closed');
+    document.removeEventListener('keydown', onCloseModal);
+  }
+  }
   );
 
   instance.show();
 
-  console.log(instance);
-
-  document.addEventListener('keydown', evt => {
+  function onCloseModal (evt) {
     if (evt.code == 'Escape') {
-      instance.close();
-
-      onclose: instance => {};
+      instance.close(); 
     }
-  });
+  }
 }
